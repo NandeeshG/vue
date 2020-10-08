@@ -1,11 +1,11 @@
 /* eslint-disable no-debugger, no-console, no-unused-vars, no-mixed-spaces-and-tabs */
 
-
 let gctr = 0
-const counter_var = {
+const Counter = {
     data () {
 	return {
-	    counter : 0
+	    counter : 0,
+	    btn_text : 'Increase value'
 	}
     },
     mounted(){
@@ -23,5 +23,5 @@ var clickhandle = function() {
 //document.getElementById('btn').addEventListener('click',function(){ gctr++; });
 
 /* eslint-disable no-undef */
-Vue.createApp(counter_var).mount('#counter')
+Vue.createApp(Counter).mount('#counter')
 /* eslint-enable no-undef */

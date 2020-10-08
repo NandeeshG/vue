@@ -15,12 +15,10 @@
     <!-- <img src="w3schools.jpg" alt="W3Schools.com" width="104" height="142"> -->
 
     <div id='counter' > 
-	Counter : {{ counter }} 
+	<p > Counter : {{ counter }} </p>
+	<button id='btn' v-on:click='increaseCounter' > {{btn_text}} </button>
     </div>
 
-
-
-    <button id='btn' onclick='clickhandle()' > Increase </button>
 
     <script src="https://unpkg.com/vue@next"></script>
     <script src = "script.js"></script>
