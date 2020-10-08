@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>intro to vue3</title>
+
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1 id="amazonHeading">Shonine</h1>
+      <h2 id="amazonDepartment">{{department}} Dept</h2>
+      <h3 id="amazonProduct">{{product_name}}</h3>
+
+      <div>
+        <div id="colorbox" style="display: inline-block">
+          <img :src="image_src" :alt="image_alt" 
+          height="400" width="560" 
+          :style="(inventory>0) ? {'border':'2mm solid green'} : {}"
+          :class="{out_of_stock:(inventory<=0)}"/>
+          <h4 class="section-heading">COLOR SELECT</h4>
+          <img
+            src="images/silver.jpeg"
+            height="50"
+            @mouseover="changeColor('silver')"
+            class="color-circle"
+          />
+          <img
+            src="images/green.jpg"
+            height="50"
+            @mouseover="changeColor('green')"
+            class="color-circle"
+          />
+        </div>
+        <div id="buybox" style="display: inline-block">
+          <h3 v-if="inventory>5">In stock</h3>
+          <h3 v-else-if="inventory>0 && inventory<=5">Only few left!</h3>
+          <h3 v-else>Out of stock</h3>
+          <h2>Price - {{price}}rs</h3>
+          <button
+            :disabled="inventory<=0"
+            @click="user.money_spent+=this.price; buyAnItem();"
+          >
+            BUY NOW
+          </button>
+        </div>
+      </div>
+      <hr>
+
+      <h3 class="section-heading">USPs -</h3>
+      <ul>
+        <li v-for="usp in usps">{{usp}}</li>
+      </ul>
+
+      <h3 class="section-heading">Versions -</h3>
+      <ol>
+        <li v-for="ver in versions">{{ver}}</li>
+      </ol>
+
+      <hr />
+      <br /><br />
+      <hr />
+
+      <div>
+        <h3>Hi {{user.user_name}}</h3>
+        <h3>Money spent - {{user.money_spent}}</h3>
+        <button @click="init">RESET</button>
+      </div>
+    </div>
+
+    <script src="./main.js"></script>
+    <script>
+      const mountedApp = app.mount("#app");
+    </script>
+  </body>
+</html>
