@@ -8,20 +8,20 @@
   border-radius: 8mm;
   padding: 4mm 1mm 2mm 1mm;
   width: 70%;
-  margin: 2% 10% 0% 10%;
+  margin: 2% 10% 0% 15%;
 }
 
 #amazonDepartment {
   font-size: 30px;
   text-align: center;
   text-decoration: cyan overline underline;
-  box-shadow: 0mm 0mm 10mm cyan;
+  box-shadow: 0mm 0mm 9mm cyan;
   background-color: gray;
   color: white;
   border-radius: 4mm;
   padding: 3mm 1mm 2mm 1mm;
   width: 60%;
-  margin: 2% 10% 0% 10%;
+  margin: 2% 10% 0% 20%;
 }
 
 #amazonProduct {
@@ -29,25 +29,31 @@
   text-align: center;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   text-decoration: gold overline underline;
-  box-shadow: 0mm 0mm 10mm gold;
+  box-shadow: 0mm 0mm 8mm gold;
   background-color: gray;
   color: white;
   border-radius: 2mm;
   padding: 3mm 1mm 2mm 1mm;
   width: 50%;
-  margin: 2% 10% 5% 10%;
+  margin: 2% 10% 5% 25%;
 }
 
 .color-circle {
-  height: 40;
-  width: 40;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
   border: 0mm black solid;
   margin: 1mm 1mm 1mm 1mm;
 }
+.version_green {
+  background-color: green;
+}
+.version_silver {
+  background-color: silver;
+}
 
 .section-heading,
-#buybox h3 {
+#product_buy h3 {
   font-style: italic;
   font-family: Verdana, sans-serif;
   border-width: 5px;
@@ -63,14 +69,27 @@
   border: 2mm solid red;
 }
 
-img {
-  margin: 1% 1% 1% 10%;
+#product_container {
+  position: relative;
 }
 
-#buybox h2 {
+#product_img {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+#product_color_select {
+}
+
+#product_buy {
+}
+
+#product_buy h2 {
+  /*price*/
   color: blue;
 }
-#buybox button {
+#product_buy button {
   font-size: 30px;
   box-shadow: 0mm 0mm 5mm cyan;
 }
