@@ -2,13 +2,26 @@ const app = Vue.createApp({
   data() {
     return {
       department: "Electronics",
-      product_name: "Dell Inspiron 15",
-      image_src: "./images/dell.jpg",
+      brand: "Dell",
+      product: "Inspiron 15",
       image_alt: "laptop_pic",
-      inventory: 10,
-      price: 40000,
+      selectedVariant: 0,
       usps: ["Light-Weight", "Webcam", "Bluetooth"],
       versions: ["i3-4gb", "i3-8gb", "i5-4gb", "i5-8gb"],
+      variants: [
+        {
+          baseprice: 40000,
+          color: "green",
+          inventory: 8,
+          image: "./images/dell_green.webp",
+        },
+        {
+          baseprice: 50000,
+          color: "silver",
+          inventory: 4,
+          image: "./images/dell.jpg",
+        },
+      ],
       user: {
         user_name: "Nandeesh",
         money_spent: 0,
@@ -17,24 +30,38 @@ const app = Vue.createApp({
   },
   methods: {
     buyAnItem() {
-      if (this.inventory > 0) this.inventory--;
-      this.updatePrice();
+      if (this.variants[this.selectedVariant].inventory > 0)
+        this.variants[this.selectedVariant].inventory--;
     },
-    updatePrice() {
-      if (this.inventory <= 0) this.price = 40000;
-      else this.price = Math.ceil(40000 + (1 / this.inventory) * 1000);
-    },
-    changeColor(color) {
-      if (color === "green") {
-        this.image_src = "./images/dell_green.webp";
-      } else if (color === "silver") {
-        this.image_src = "./images/dell.jpg";
+    changeColor(_color) {
+      for (let i = 0; i <= this.variants.length; ++i) {
+        if (this.variants[i].color === _color) {
+          this.selectedVariant = i;
+          return;
+        }
       }
     },
     init() {
-      this.inventory = 10;
-      this.price = 40000;
+      this.variants[0].inventory = 8;
+      this.variants[1].inventory = 4;
       this.user.money_spent = 0;
+    },
+  },
+  computed: {
+    product_name() {
+      return this.brand + " " + this.product;
+    },
+    image_src() {
+      return this.variants[this.selectedVariant].image;
+    },
+    inventory() {
+      return this.variants[this.selectedVariant].inventory;
+    },
+    price() {
+      let bp = this.variants[this.selectedVariant].baseprice;
+      let inv = this.variants[this.selectedVariant].inventory;
+      if (inv <= 0) return bp;
+      else return Math.ceil(bp + (1 / inv) * 1000);
     },
   },
 });

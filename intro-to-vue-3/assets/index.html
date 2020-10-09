@@ -7,43 +7,46 @@
     <link rel="stylesheet" href="./styles.css" />
     <script src="https://unpkg.com/vue@next"></script>
   </head>
+
   <body>
-    <div id="app">
+    <div id="app" >
       <h1 id="amazonHeading">Shonine</h1>
       <h2 id="amazonDepartment">{{department}} Dept</h2>
       <h3 id="amazonProduct">{{product_name}}</h3>
 
-      <div>
-        <div id="colorbox" style="display: inline-block">
-          <img :src="image_src" :alt="image_alt" 
-          height="400" width="560" 
-          :style="(inventory>0) ? {'border':'2mm solid green'} : {}"
-          :class="{out_of_stock:(inventory<=0)}"/>
+      <div id="product_container">
+        <img id="product_img"
+            :src="image_src" 
+            :alt="image_alt" 
+            height="400" width="560" 
+            :style="(inventory>0) ? {'border':'2mm solid green'} : {}"
+            :class="(inventory<=0)? 'out_of_stock':''"   
+        />
+        <div id="product_color_select" >
           <h4 class="section-heading">COLOR SELECT</h4>
-          <img
-            src="images/silver.jpeg"
-            height="50"
-            @mouseover="changeColor('silver')"
-            class="color-circle"
-          />
-          <img
-            src="images/green.jpg"
-            height="50"
-            @mouseover="changeColor('green')"
-            class="color-circle"
-          />
+          <!-- Vue class binding, v-for and v-on all in one -->
+          <div v-for="v in variants" 
+               :class="['version_'+v.color, 'color-circle']"
+               @mouseover="changeColor(v.color)"
+               style="display: inline-block;"
+          ></div>
         </div>
-        <div id="buybox" style="display: inline-block">
+
+        <div id="product_buy" >
+
           <h3 v-if="inventory>5">In stock</h3>
           <h3 v-else-if="inventory>0 && inventory<=5">Only few left!</h3>
           <h3 v-else>Out of stock</h3>
+
           <h2>Price - {{price}}rs</h3>
+          <!-- Trying code in HTML -->
           <button
             :disabled="inventory<=0"
             @click="user.money_spent+=this.price; buyAnItem();"
           >
             BUY NOW
           </button>
+
         </div>
       </div>
       <hr>
@@ -72,6 +75,7 @@
     <script src="./main.js"></script>
     <script>
       const mountedApp = app.mount("#app");
+      mountedApp.init()
     </script>
   </body>
 </html>
