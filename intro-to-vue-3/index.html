@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>intro to vue3</title>
+
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <h1 id="amazonHeading">Shonine</h1>
+
+      <product-component> </product-component>
+
+      <hr />
+      <br /><br />
+      <hr />
+
+      <footer>
+        <h3>Hi {{user.user_name}}</h3>
+        <h3>Money spent - {{user.money_spent}}</h3>
+        <button @click="init">RESET</button>
+      </footer>
+    </div>
+
+    <script src="./main.js"></script>
+    <script src="./components/Product.js"></script>
+    <script>
+      const mountedApp = app.mount("#app");
+      //mountedApp.init();
+    </script>
+  </body>
+</html>
