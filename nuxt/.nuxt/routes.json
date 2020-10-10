@@ -1,0 +1,23 @@
+[
+  {
+    "name": "about_me",
+    "path": "/about_me",
+    "component": "/home/nandeesh/Documents/learn/vue/nuxt/pages/about_me.vue",
+    "chunkName": "pages/about_me",
+    "_name": "_cd130318"
+  },
+  {
+    "name": "resume",
+    "path": "/resume",
+    "component": "/home/nandeesh/Documents/learn/vue/nuxt/pages/resume/index.vue",
+    "chunkName": "pages/resume/index",
+    "_name": "_08dc3b5a"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/home/nandeesh/Documents/learn/vue/nuxt/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_54a64b50"
+  }
+]
