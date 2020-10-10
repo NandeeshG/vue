@@ -1,0 +1,17 @@
+{
+    "name": "try-app",
+    "version": "0.0.0",
+    "description": "Learning nuxt from official docs",
+    "main": "index.js",
+    "scripts": {
+        "dev": "nuxt",
+        "build": "nuxt build",
+        "generate": "nuxt generate",
+        "start": "nuxt start"
+    },
+    "author": "Nandeesh",
+    "license": "ISC",
+    "dependencies": {
+        "nuxt": "^2.14.6"
+    }
+}

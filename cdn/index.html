@@ -1,29 +1,24 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
 
-<head >
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css">
+    <title>VUE</title>
+  </head>
 
-    <title> VUE </title>
-</head>
-
-<body >
+  <body>
     <!-- <a href="https://www.w3schools.com">This is a link</a> -->
     <!-- <img src="w3schools.jpg" alt="W3Schools.com" width="104" height="142"> -->
 
-    <div id='counter' > 
-	<p > Counter : {{ counter }} </p>
-	<button id='btn' v-on:click='increaseCounter' > {{btn_text}} </button>
+    <div id="counter">
+      <p>Counter : {{ counter }}</p>
+      <button id="btn" v-on:click="increaseCounter">{{btn_text}}</button>
     </div>
 
-
     <script src="https://unpkg.com/vue@next"></script>
-    <script src = "script.js"></script>
-
-</body>
-
+    <script src="script.js"></script>
+  </body>
 </html>
-
