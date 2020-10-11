@@ -1,4 +1,4 @@
-# real-world-vue
+# product-pages
 
 ## Project setup
 ```
