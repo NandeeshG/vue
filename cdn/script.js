@@ -2,24 +2,24 @@
 
 let gctr = 0
 const Counter = {
-    data () {
-	return {
-	    counter : 0,
-	    btn_text : 'Increase value'
-	}
+    data() {
+        return {
+            counter: 0,
+            btn_text: 'Increase value',
+        }
     },
-    mounted(){
-	setInterval(()=>{
-	    this.counter = gctr;
-	},200);
-    }
+    mounted() {
+        setInterval(() => {
+            this.counter = gctr
+        }, 200)
+    },
 }
 
-var clickhandle = function() {
-    console.log('Hi gctr ',gctr);
-    gctr++;
-    console.log('Bye gctr ',gctr);
-};
+var clickhandle = function () {
+    console.log('Hi gctr ', gctr)
+    gctr++
+    console.log('Bye gctr ', gctr)
+}
 //document.getElementById('btn').addEventListener('click',function(){ gctr++; });
 
 /* eslint-disable no-undef */
